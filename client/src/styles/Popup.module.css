@@ -1,0 +1,87 @@
+/* Styling for the popup container */
+.popup-container {
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(to top, #BADBFB, #FFFFFF);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  /* Styling for the popup title */
+  .popup-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Styling for the input container */
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+  }
+  
+  /* Styling for the common input fields */
+  .popup-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e5e7eb;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .popup-input:focus {
+    border-color: #1a202c; /* Change the border color on focus */
+  }
+  
+  /* Styling for the password input field */
+  .popup-password {
+    border-color: #007acc; /* Customize the border color for passwords */
+    color: #007acc;
+  }
+  
+  .popup-password:focus {
+    border-color: #005687; /* Change the border color on focus for passwords */
+  }
+
+  /* Styling for the button */
+.popup-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup-button:hover {
+    background-color: #333; /* Darken the button on hover */
+  }
+  
+  .popup-button:focus {
+    outline: none;
+  }
+  
+  .popup-button:active {
+    transform: scale(0.98); /* Slightly scale down the button on click */
+  }
+  
+  /* Styles for the success message */
+.success-message {
+  background-color: #4caf50; /* Background color for success message */
+  color: #fff; /* Text color for success message */
+  padding: 10px; /* Padding around the success message */
+  border-radius: 5px; /* Rounded corners */
+  text-align: center; /* Center-align text */
+  margin-top: 10px; /* Margin space at the top */
+  font-weight: bold; /* Bold text */
+}
+
+  
