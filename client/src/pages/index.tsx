@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import LoginForm from "../components/LoginForm";
-import RegisterForm from "../components/RegisterForm";
-import Vault from "../components/Vault";
-import styles from "../styles/Home.module.css";
+import LoginForm from "@components/LoginForm";
+import RegisterForm from "@components/RegisterForm";
+import Vault from "@components/Vault";
+import styles from "@styles/Home.module.css";
 
 export interface VaultItem {
   website: string;

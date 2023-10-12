@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { getCsrfToken, signIn, signOut, useSession } from "next-auth/react";
-import styles from "../styles/header.module.css";
+import styles from "@styles/header.module.css";
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { SigninMessage } from "../utils/SignMessage";
+import { SigninMessage } from "@utils/SignMessage";
 import bs58 from "bs58";
 import { useCallback, useEffect } from "react";
 

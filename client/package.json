@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "Veil",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,12 +11,18 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  },
   "dependencies": {
     "@chakra-ui/react": "1.8.8",
-    "@coral-xyz/anchor": "^0.28.1-beta.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@project-serum/anchor": "^0.26.0",
     "@solana-mobile/wallet-adapter-mobile": "^2.0.1",
+    "@solana/spl-token": "^0.3.8",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/wallet-adapter-react-ui": "^0.9.34",
@@ -28,6 +34,7 @@
     "framer-motion": "^6",
     "next": "12.1.6",
     "next-auth": "^4.23.2",
+    "next-compose-plugins": "^2.2.1",
     "plasmo": "^0.83.0",
     "react": "18.1.0",
     "react-dom": "18.1.0",
@@ -43,5 +50,16 @@
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
     "typescript": "4.6.4"
+  },
+  "_moduleAliases": {
+    "@utils": "utils",
+    "@contexts": "contexts",
+    "@components": "components",
+    "@styles": "styles",
+    "@pages": "pages",
+    "@data": "data",
+    "@types": "types",
+    "@idls": "idls",
+    "@models": "models"
   }
 }

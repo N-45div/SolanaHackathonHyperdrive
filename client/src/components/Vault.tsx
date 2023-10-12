@@ -2,7 +2,7 @@ import { Box, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import { saveVault } from "../api";
-import { encryptVault } from "../crypto";
+import { encryptVault } from "../utils/crypto";
 import { VaultItem } from "../pages";
 import FormWrapper from "./FormWrapper";
 

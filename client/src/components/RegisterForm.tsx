@@ -10,7 +10,7 @@ import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "react-query";
 import { registerUser } from "../api";
-import { generateVaultKey, hashPassword } from "../crypto";
+import { generateVaultKey, hashPassword } from "../utils/crypto";
 import { VaultItem } from "../pages";
 import FormWrapper from "./FormWrapper";
 
