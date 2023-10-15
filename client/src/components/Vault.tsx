@@ -1,10 +1,9 @@
-import { Box, FormControl, FormLabel, Input, Button } from "@chakra-ui/react";
 import { useFieldArray, useForm } from "react-hook-form";
-import { useMutation } from "react-query";
-import { saveVault } from "../api";
 import { encryptVault } from "../utils/crypto";
-import { VaultItem } from "../pages";
+import { VaultItem } from "../types";
 import FormWrapper from "./FormWrapper";
+import styles from "../styles/Popup.module.css";
+import React from "react";
 
 function Vault({
   vault = [],
@@ -24,9 +23,10 @@ function Vault({
     name: "vault",
   });
 
-  const mutation = useMutation(saveVault);
+  // const mutation = useMutation(saveVault);
 
   return (
+    <div className={styles.Vault}>
     <FormWrapper
       onSubmit={handleSubmit(({ vault }) => {
         console.log({ vault });
@@ -38,23 +38,15 @@ function Vault({
 
         window.sessionStorage.setItem("vault", JSON.stringify(vault));
 
-        mutation.mutate({
-          encryptedVault,
-        });
+        // mutation.mutate({
+        //   encryptedVault,
+        // });
       })}
     >
       {fields.map((field, index) => {
         return (
-          <Box
-            mt="4"
-            mb="4"
-            display="flex"
-            key={field.id}
-            alignItems="flex-end"
-          >
-            <FormControl>
-              <FormLabel htmlFor="website">Website</FormLabel>
-              <Input
+          <div key={field.id} className={styles.vaultBox}>
+              <input
                 type="url"
                 id="website"
                 placeholder="Website"
@@ -62,22 +54,16 @@ function Vault({
                   required: "Website is required",
                 })}
               />
-            </FormControl>
 
-            <FormControl ml="2">
-              <FormLabel htmlFor="username">Username</FormLabel>
-              <Input
+              <input
                 id="username"
                 placeholder="Username"
                 {...register(`vault.${index}.username`, {
                   required: "Username is required",
                 })}
               />
-            </FormControl>
 
-            <FormControl ml="2">
-              <FormLabel htmlFor="password">Password</FormLabel>
-              <Input
+              <input
                 type="password"
                 id="password"
                 placeholder="Password"
@@ -85,32 +71,32 @@ function Vault({
                   required: "Password is required",
                 })}
               />
-            </FormControl>
 
-            <Button
-              type="button"
-              bg="red.500"
-              color="white"
-              fontSize="2xl"
-              ml="2"
-              onClick={() => remove(index)}
-            >
-              -
-            </Button>
-          </Box>
+              <button
+                type="button"
+                onClick={() => remove(index)}
+                className={styles.RemoveBtn}
+              >
+                Remove
+              </button>
+            </div>
         );
       })}
 
-      <Button
-        onClick={() => append({ website: "", username: "", password: "" })}
-      >
-        Add
-      </Button>
+      <div className={styles.vaultBtn}>
+        <button
+          className={styles.Add_btn}
+          onClick={() => append({ website: "", username: "", password: "" })}
+        >
+          Add
+        </button>
 
-      <Button ml="8" color="teal" type="submit">
-        Save vault
-      </Button>
+        <button type="submit" className={styles.saveVaultBtn}>
+          Save vault
+        </button>
+      </div>
     </FormWrapper>
+    </div>
   );
 }
 

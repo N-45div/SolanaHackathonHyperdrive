@@ -21,7 +21,7 @@ import { decryptVault } from "../utils/crypto";
 import styles from "../styles/Popup.module.css";
 import React from "react";
 
-function RegisterForm({
+function UnlockForm({
   setVaultKey,
   setStep,
   setVault,
@@ -42,7 +42,7 @@ function RegisterForm({
     formState: { errors, isSubmitting },
   } = useForm<{ wallet: string; password: string; hashedPassword: string }>();
 
-  const handleRegister = useCallback(async () => {
+  const handleUnlock = useCallback(async () => {
     try {
       const { txs, salt, vault } = await fetcher<RegisterUserData>(
         `/api/user/register`,
@@ -111,10 +111,10 @@ function RegisterForm({
 
         setValue("hashedPassword", hashedPassword);
 
-        handleRegister();
+        handleUnlock();
       })}
     >
-      <header>Register</header>
+      <header>Unlock Vault</header>
 
         <input
           id="wallet"
@@ -138,10 +138,10 @@ function RegisterForm({
           {errors.wallet && errors.wallet.message}
         </p>
 
-      <button type="submit">Register</button>
+      <button type="submit">Unlock</button>
     </FormWrapper>
     </div>
   );
 }
 
-export default RegisterForm;
+export default UnlockForm;

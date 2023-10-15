@@ -1,119 +1,111 @@
-import {
-  Button,
-  FormControl,
-  FormErrorMessage,
-  FormLabel,
-  Heading,
-  Input,
-} from "@chakra-ui/react";
-import { Dispatch, SetStateAction } from "react";
-import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
-import { loginUser, registerUser } from "../api";
-import { decryptVault, generateVaultKey, hashPassword } from "@utils/crypto";
-import { VaultItem } from "../pages";
-import FormWrapper from "./FormWrapper";
-import Header from "./Header";
+import { Dispatch, SetStateAction, useState } from "react";
+import { getCsrfToken, signIn, signOut, useSession } from "next-auth/react";
+import styles from "../styles/Home.module.css";
+import { SigninMessage } from "../utils/SignMessage";
+import bs58 from "bs58";
+import { useCallback, useEffect } from "react";
+import { fetcher } from "../utils/use-data-fetcher";
+import { LoginUserData } from "../pages/api/user/[wallet]";
+import { useWallet } from "@solana/wallet-adapter-react";
+import dynamic from "next/dynamic";
+import React from "react";
+
+const WalletMultiButton = dynamic(
+  () =>
+    import("@solana/wallet-adapter-react-ui").then(
+      (mod) => mod.WalletMultiButton
+    ),
+  {
+    ssr: false,
+  }
+);
 
 function LoginForm({
-  setVault,
-  setVaultKey,
   setStep,
 }: {
-  setVault: Dispatch<SetStateAction<VaultItem[]>>;
-  setVaultKey: Dispatch<SetStateAction<string>>;
-  setStep: Dispatch<SetStateAction<"login" | "register" | "vault">>;
+  setStep: Dispatch<SetStateAction<"login" | "register" | "unlock" | "vault">>;
 }) {
-  const {
-    handleSubmit,
-    register,
-    getValues,
-    setValue,
-    formState: { errors, isSubmitting },
-  } = useForm<{ email: string; password: string; hashedPassword: string }>();
+  
+  const { data: session, status } = useSession();
 
-  const mutation = useMutation(loginUser, {
-    onSuccess: ({ salt, vault }) => {
-      const hashedPassword = getValues("hashedPassword");
+  const wallet = useWallet();
+  const { publicKey } = useWallet();
+  const [isConnected, setIsConnected] = useState(false);
 
-      const email = getValues("email");
+  // // Set isConnected state when publicKey changes
+  useEffect(() => {
+    setIsConnected(publicKey !== null);
+  }, [publicKey]);
 
-      const vaultKey = generateVaultKey({
-        hashedPassword,
-        email,
-        salt,
+  const choseStep = useCallback(async () => {
+    const { userAccount: userAccount } = await fetcher<LoginUserData>(
+      `/api/user/${wallet.publicKey}`,
+      { method: "GET" }
+    );
+
+    if(userAccount)
+      setStep("unlock");
+    else
+      setStep("register");
+
+  },[setStep, wallet.publicKey])
+
+  const handleSignIn = useCallback(async () => {
+    try {
+
+      const csrf = await getCsrfToken();
+      if (!wallet.publicKey || !csrf || !wallet.signMessage) return;
+
+      const message = new SigninMessage({
+        domain: window.location.host,
+        publicKey: wallet.publicKey?.toBase58(),
+        statement: `Sign this message to sign in to the app.`,
+        nonce: csrf,
       });
 
-      window.sessionStorage.setItem("vk", vaultKey);
+      const data = new TextEncoder().encode(message.prepare());
+      const signature = await wallet.signMessage(data);
+      const serializedSignature = bs58.encode(signature);
 
-      const decryptedVault = decryptVault({ vault, vaultKey });
+      signIn("credentials", {
+        message: JSON.stringify(message),
+        redirect: false,
+        signature: serializedSignature,
+      });
 
-      setVaultKey(vaultKey);
-      setVault(decryptedVault);
+      await choseStep();
 
-      window.sessionStorage.setItem("vault", JSON.stringify(decryptedVault));
+    } catch (error) {
+      console.log(error);
+    }
+  },[choseStep, wallet]);
 
-      setStep("vault");
-    },
-  });
+  useEffect(() => {
+    if (wallet.connected && status === "authenticated") {
+      choseStep();
+    }
+  }, [choseStep, handleSignIn, status, wallet.connected]);
 
   return (
     <div>
-    <Header />
-    <FormWrapper
-      onSubmit={handleSubmit(() => {
-        const password = getValues("password");
-        const email = getValues("email");
-
-        const hashedPassword = hashPassword(password);
-
-        setValue("hashedPassword", hashedPassword);
-
-        mutation.mutate({
-          email,
-          hashedPassword,
-        });
-      })}
-    >
-      <Heading>Login</Heading>
-
-      <FormControl mt="4">
-        <FormLabel htmlFor="email">Email</FormLabel>
-        <Input
-          id="email"
-          placeholder="Email"
-          {...register("email", {
-            required: "Email is required",
-            minLength: { value: 4, message: "Email must be 4 characters long" },
-          })}
-        />
-
-        <FormErrorMessage>
-          {errors.email && errors.email.message}
-        </FormErrorMessage>
-      </FormControl>
-      <FormControl mt="4">
-        <FormLabel htmlFor="password">Password</FormLabel>
-        <Input
-          id="password"
-          placeholder="Password"
-          type="password"
-          {...register("password", {
-            required: "Password is required",
-            minLength: {
-              value: 6,
-              message: "Password must be 6 characters long",
-            },
-          })}
-        />
-
-        <FormErrorMessage>
-          {errors.email && errors.email.message}
-        </FormErrorMessage>
-      </FormControl>
-
-      <Button type="submit">Login</Button>
-    </FormWrapper>
+      <div className={styles.multiWalletDiv}>
+      <h1>Trusty Pass</h1>
+        <p>
+          Revolutionize your online presence with Trusty Pass, a
+          state-of-the-art Web3 website manager built on the lightning-fast
+          Solana blockchain.
+        </p>
+        {!isConnected ? (
+          
+            <div className={styles.WalletMultiButton_btn}>
+              <WalletMultiButton/>
+            </div>
+        ):(
+          <button className={styles.WalletMultiButton_btn} onClick={handleSignIn}>
+            Sign in
+          </button>
+        )}
+      </div>
     </div>
   );
 }

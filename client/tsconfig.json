@@ -19,31 +19,43 @@
     "jsx": "preserve",
     "downlevelIteration": true,
     "removeComments": true,
-    "incremental": true,
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["src/components/*"],
-      "@utils/*": ["src/utils/*"],
-      "@types": ["src/types/index.ts"],
-      "@idl/*": ["src/idl/*"],
-      "@styles/*": ["src/styles/*"],
-      "@pages/*": ["src/pages/*"],
-      "@data/*": ["src/data/*"]
-    }
+    "incremental": true
+    // "baseUrl": ".",
+    // "paths": {
+    //   "@components/*": [
+    //     "src/components/*"
+    //   ],
+    //   "@utils/*": [
+    //     "src/utils/*"
+    //   ],
+    //   "@types": [
+    //     "src/types/index.ts"
+    //   ],
+    //   "@idl/*": [
+    //     "src/idl/*"
+    //   ],
+    //   "@styles/*": [
+    //     "src/styles/*"
+    //   ],
+    //   "@pages/*": [
+    //     "src/pages/*"
+    //   ],
+    //   "@data/*": [
+    //     "src/data/*"
+    //   ]
+    // }
   },
   "include": [
     ".plasmo/index.d.ts",
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ],
   "exclude": [
     ".github",
     ".next",
-    "_site",
-    "coverage",
-    "cypress",
-    "staticPages",
     "node_modules",
     "public"
   ]

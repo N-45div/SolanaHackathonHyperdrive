@@ -1,79 +1,394 @@
 /* Styling for the popup container */
-.popup-container {
-    width: 300px;
-    padding: 20px;
-    text-align: center;
-    background: linear-gradient(to top, #BADBFB, #FFFFFF);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    
+.popup_container {
+  /* Styling for the popup container */
+
+  -webkit-box-shadow: 0px 0px 19px 3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 19px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 19px 3px rgba(42, 0, 45, 0.75);
+  background: linear-gradient(37deg, #001024, #036ddb 48%, #00d4ff);
+
+  backdrop-filter: blur(7px) saturate(200%);
+  -webkit-backdrop-filter: blur(7px) saturate(200%);
+  background-color: rgba(17, 25, 40, 0.23);
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.multiWalletDiv {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+.main form input {
+  width: 100%;
+}
+
+.multiWalletDiv h1 {
+  font-size: 2em;
+  color: white;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.multiWalletDiv .WalletMultiButton_btn {
+  margin-bottom: 3em;
+}
+
+.multiWalletDiv p {
+  color: white;
+  text-align: center;
+  width: 80%;
+  margin: 2em auto;
+}
+
+.RegisterForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.RegisterForm input {
+  margin-bottom: 1em;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.RegisterForm input:focus {
+  outline: none; /* Remove the default focus outline */
+  border-color: #036ddb; /* Set the border color when input is focused */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add a box shadow when input is focused */
+}
+
+.main button {
+  font-size: 1em;
+  padding: 0.7em 2.7em;
+  letter-spacing: 0.06em;
+  position: relative;
+  border-radius: 0.6em;
+  overflow: hidden;
+  transition: all 0.3s;
+  border: 2px solid var(--green);
+  background: #001024;
+  background: linear-gradient(37deg, #001024, #036ddb 48%, #00d4ff);
+  box-shadow: inset 0 0 10px rgba(43, 0, 103, 0.4),
+    0 0 9px 3px rgba(27, 253, 156, 0.1);
+  color: white;
+}
+
+.main .error {
+  color: red;
+}
+
+.main button:hover {
+  color: #000000;
+}
+
+.RegisterForm header {
+  font-size: 2em;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+
+.RegisterForm button {
+  padding: 0.7em;
+  background-color: white;
+  color: #000;
+  font-size: 1.5em;
+  font-weight: 600;
+  width: 70%;
+  margin: auto;
+}
+
+.RegisterForm form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.Vault button {
+  padding: 0.7em;
+  color: #000;
+  font-size: 1.5em;
+  font-weight: 600;
+  width: 70%;
+  margin: auto;
+}
+.Add_btn {
+  padding: 0.7em;
+  background-color: white;
+  color: #000;
+  font-size: 1.5em;
+  font-weight: 600;
+  width: 70%;
+  margin: auto;
+}
+
+.Vault {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Vault input {
+  margin-bottom: 1.5em;
+}
+
+.vaultBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Vault .Add_btn {
+  background-color: transparent;
+  color: white;
+  margin-bottom: 2em;
+  border: 1px white solid;
+}
+.Vault .RemoveBtn {
+  margin: 2em auto;
+  background-color: white;
+}
+
+.Vault input:focus {
+  outline: none; /* Remove the default focus outline */
+  border-color: #036ddb; /* Set the border color when input is focused */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Add a box shadow when input is focused */
+}
+
+.vaultBox {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.vaultBox input {
+  border-radius: 0.5em;
+  padding: 0.6em;
+}
+
+.Vault .saveVaultBtn {
+  background-color: white;
+}
+
+.Expand_view {
+  /* display: none; */
+  color: wheat;
+}
+
+.Expand_view img {
+  width: 30px;
+}
+
+.Expand_view {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+}
+.popup_body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2em;
+}
+
+/* Styling for the popup title */
+.popup_title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  font-family: "Kanit", sans-serif;
+}
+
+.multiWalletDiv h1 {
+  font-size: 2em;
+  color: white;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.multiWalletDiv .WalletMultiButton_btn {
+  margin-bottom: 3em;
+}
+
+.multiWalletDiv p {
+  color: white;
+  text-align: center;
+  width: 80%;
+  margin: 2em auto;
+}
+/* Styling for the input container */
+.input-container {
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Styling for the common input fields */
+.popup_input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  color: white;
+}
+
+.popup_input:focus {
+  border-color: #036ddb; /* Change the border color on focus */
+}
+
+/* Styling for the button */
+
+/* button:before {
+  content: "";
+  position: absolute;
+  left: -3em;
+  width: 9em;
+  height: 100%;
+  top: 0;
+  transition: transform 0.4s ease-in-out;
+  background: linear-gradient(
+    to right,
+    transparent 1%,
+    rgb(255, 0, 179) 40%,
+    rgb(93, 0, 255) 60%,
+    transparent 100%
+  );
+} */
+
+.button:hover:before {
+  transform: translateX(15em);
+}
+
+/* Styles for the success message */
+.success-message {
+  background-color: #0f000d; /* Background color for success message */
+  color: #fff; /* Text color for success message */
+  padding: 10px; /* Padding around the success message */
+  border-radius: 5px; /* Rounded corners */
+  text-align: center; /* Center-align text */
+  margin-top: 10px; /* Margin space at the top */
+  font-weight: bold; /* Bold text */
+  width: 40%;
+}
+/* form error message */
+.error {
+  color: rgb(255, 30, 0);
+  margin: 0.6em 0;
+  text-align: left;
+  font-style: italic;
+}
+
+/* Media query for screens up to 600px wide */
+
+@media screen and (min-width: 500px) {
+  .Expand_view {
+    display: none;
   }
-  
-  /* Styling for the popup title */
-  .popup-title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  /* Styling for the input container */
-  .input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-bottom: 20px;
-  }
-  
-  /* Styling for the common input fields */
-  .popup-input {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #e5e7eb;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  .popup-input:focus {
-    border-color: #1a202c; /* Change the border color on focus */
-  }
-  
-  /* Styling for the password input field */
-  .popup-password {
-    border-color: #007acc; /* Customize the border color for passwords */
-    color: #007acc;
-  }
-  
-  .popup-password:focus {
-    border-color: #005687; /* Change the border color on focus for passwords */
+}
+
+/* Media query for screens up to 600px wide */
+@media screen and (max-width: 600px) {
+  .popup_container {
+    width: 350px;
+    height: 500px;
+    position: unset;
+    transform: unset;
   }
 
-  /* Styling for the button */
-.popup-button {
+  .popup_title {
+    font-size: 20px; /* Adjust font size for title */
+  }
+
+  .popup_input,
+  .popup_password {
+    font-size: 14px; /* Adjust font size for inputs */
+  }
+
+  .popup_button {
+    font-size: 14px; /* Adjust font size for button */
+  }
+  .button {
     width: 100%;
-    padding: 10px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
   }
-  
-  .popup-button:hover {
-    background-color: #333; /* Darken the button on hover */
-  }
-  
-  .popup-button:focus {
-    outline: none;
-  }
-  
-  .popup-button:active {
-    transform: scale(0.98); /* Slightly scale down the button on click */
-  }
-  
-  /* Styles for the success message */
+}
+
+/* Styling for the popup title */
+.popup_title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Styling for the input container */
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+/* Styling for the common input fields */
+.popup_input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e5e7eb;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.popup_input:focus {
+  border-color: #1a202c; /* Change the border color on focus */
+}
+
+/* Styling for the password input field */
+.popup_password {
+  border-color: #007acc; /* Customize the border color for passwords */
+  color: #007acc;
+}
+
+.popup_password:focus {
+  border-color: #005687; /* Change the border color on focus for passwords */
+}
+
+/* Styling for the button */
+.popup_button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.popup_button:hover {
+  background-color: #333; /* Darken the button on hover */
+}
+
+.popup_button:focus {
+  outline: none;
+}
+
+.popup_button:active {
+  transform: scale(0.98); /* Slightly scale down the button on click */
+}
+
+/* Styles for the success message */
 .success-message {
   background-color: #4caf50; /* Background color for success message */
   color: #fff; /* Text color for success message */
@@ -83,5 +398,3 @@
   margin-top: 10px; /* Margin space at the top */
   font-weight: bold; /* Bold text */
 }
-
-  

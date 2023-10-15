@@ -1,3 +1,5 @@
+//Check if user account exists on-chain and call Login or Register accordingly to create or fetch the account
+
 import * as anchor from "@project-serum/anchor";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
 import {
@@ -7,13 +9,13 @@ import {
   SystemProgram,
   Transaction,
 } from "@solana/web3.js";
-import { IDL as ProgramIDL} from "@idl/pass_manager";
+import { IDL as ProgramIDL} from "../../../idl/pass_manager";
 import { NextApiRequest, NextApiResponse } from "next";
 
-export type TxCreateVaultData = {
+export type LoginUserData = {
   confirmed: boolean;
   message?: string;
-  tx?: string;
+  userAccount?: PublicKey;
 };
 
 type Input = {
@@ -31,10 +33,10 @@ const program = new anchor.Program(ProgramIDL, programId || "2gbAD17RAJLvRG4zTEg
   connection,
 });
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<LoginUserData>) {
   try {
     if(req.method === "POST") {
-      res.status(400).json({ message: "Invalid method" });
+      res.status(405).json({ confirmed: false, message: "Invalid method" });
       return;
     }
     else if(req.method === "GET") {
@@ -42,6 +44,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       let tx = new Transaction();
 
+      res.status(200).json({
+        confirmed: true,
+        message: "Login successful",
+        userAccount: undefined,
+      });
 
     }
 

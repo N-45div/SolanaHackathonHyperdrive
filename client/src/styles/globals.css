@@ -1,11 +1,4 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +6,31 @@ a {
 
 * {
   box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Kanit", sans-serif;
+}
+
+body {
+  background-color: #000000;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Kanit", sans-serif;
+}
+
+input {
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0
+  ); /* This sets the background color to fully transparent */
+  border: 1px solid #00a3e8; /* You can add border styles if needed */
+  color: #fff; /* Set text color to contrast with the background */
 }

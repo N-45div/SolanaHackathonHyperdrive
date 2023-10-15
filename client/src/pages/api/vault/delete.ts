@@ -1,0 +1,1 @@
+//Delete a vault data from on-chain account

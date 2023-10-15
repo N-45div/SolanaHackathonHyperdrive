@@ -1,4 +1,4 @@
-//Update the existing vault data on-chain
+//decode the on-chain vault data using Password and Salt
 
 import * as anchor from "@project-serum/anchor";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
@@ -9,7 +9,7 @@ import {
   SystemProgram,
   Transaction,
 } from "@solana/web3.js";
-import { IDL as ProgramIDL} from "../../../idl/pass_manager";
+import { IDL as ProgramIDL} from "@idl/pass_manager";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export type TxCreateVaultData = {

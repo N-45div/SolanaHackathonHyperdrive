@@ -1,4 +1,4 @@
-//Create a new on-chain vault
+//Check if user account exists on-chain and call Login or Register accordingly to create or fetch the account
 
 import * as anchor from "@project-serum/anchor";
 import { TOKEN_PROGRAM_ID } from "@solana/spl-token";
@@ -12,12 +12,15 @@ import {
 import { IDL as ProgramIDL} from "@idl/pass_manager";
 import { getBlockhashWithRetries } from "@utils/get-blockhash-with-retries";
 import { NextApiRequest, NextApiResponse } from "next";
+import { fetcher } from "@utils/use-data-fetcher";
+import { TxCreateVaultData } from "../vault/create";
+import { generateSalt } from "@utils/genSalt";
 
-export type TxCreateVaultData = {
+export type UnlockUserData = {
   confirmed: boolean;
   message?: string;
-  tx?: string;
-  vault?: string;
+  vaults?: string[];
+  salts?: string[];
 };
 
 type Input = {
@@ -35,23 +38,23 @@ const program = new anchor.Program(ProgramIDL, programId || "2gbAD17RAJLvRG4zTEg
   connection,
 });
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<TxCreateVaultData>) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<UnlockUserData>) {
   try {
     if(req.method === "GET") {
-      res.status(405).json({ confirmed: false, message: "Invalid method" });
+      res.status(400).json({ confirmed:false, message: "Invalid method" });
       return;
     }
     else if(req.method === "POST") {
       const { user_wallet } = req.body as Input;
 
-      let tx = new Transaction();
-
-      const vault = anchor.web3.Keypair.generate();
+      const vaults: string[] = [];
+    const salts: string[] = [];
 
       res.status(200).json({
         confirmed: true,
-        tx: tx.serialize().toString("base64"),
-        vault: vault.publicKey.toString(),
+        message: "User unlocked",
+        salts: salts,
+        vaults: vaults,
       });
     }
 

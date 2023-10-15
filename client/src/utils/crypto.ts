@@ -6,16 +6,16 @@ export function hashPassword(password: string) {
 }
 
 export function generateVaultKey({
-  email,
+  wallet,
   hashedPassword,
   salt,
 }: {
-  email: string;
+  wallet: string;
 
   hashedPassword: string;
   salt: string;
 }) {
-  return pbkdf2(`${email}:${hashedPassword}`, salt, {
+  return pbkdf2(`${wallet}:${hashedPassword}`, salt, {
     keySize: 32,
   }).toString();
 }

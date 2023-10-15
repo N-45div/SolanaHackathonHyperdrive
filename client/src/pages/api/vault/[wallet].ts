@@ -1,0 +1,1 @@
+//Fetch all the user wallets from on-chain account
