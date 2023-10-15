@@ -16,6 +16,11 @@ export type PassManager = {
           "isSigner": false
         },
         {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "systemProgram",
           "isMut": false,
           "isSigner": false
@@ -40,6 +45,11 @@ export type PassManager = {
         },
         {
           "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
           "isMut": true,
           "isSigner": false
         },
@@ -110,6 +120,22 @@ export type PassManager = {
   ],
   "accounts": [
     {
+      "name": "user",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "vaultCount",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
       "name": "vault",
       "type": {
         "kind": "struct",
@@ -136,10 +162,28 @@ export type PassManager = {
   ],
   "types": [
     {
+      "name": "CreateUserInput",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": {
+              "option": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
       "name": "CreateVaultInput",
       "type": {
         "kind": "struct",
         "fields": [
+          {
+            "name": "vaultCount",
+            "type": "u32"
+          },
           {
             "name": "maxDataLength",
             "type": "u32"
@@ -341,6 +385,11 @@ export const IDL: PassManager = {
           "isSigner": false
         },
         {
+          "name": "user",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
           "name": "systemProgram",
           "isMut": false,
           "isSigner": false
@@ -365,6 +414,11 @@ export const IDL: PassManager = {
         },
         {
           "name": "vault",
+          "isMut": true,
+          "isSigner": false
+        },
+        {
+          "name": "user",
           "isMut": true,
           "isSigner": false
         },
@@ -435,6 +489,22 @@ export const IDL: PassManager = {
   ],
   "accounts": [
     {
+      "name": "user",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "publicKey"
+          },
+          {
+            "name": "vaultCount",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
       "name": "vault",
       "type": {
         "kind": "struct",
@@ -461,10 +531,28 @@ export const IDL: PassManager = {
   ],
   "types": [
     {
+      "name": "CreateUserInput",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": {
+              "option": "publicKey"
+            }
+          }
+        ]
+      }
+    },
+    {
       "name": "CreateVaultInput",
       "type": {
         "kind": "struct",
         "fields": [
+          {
+            "name": "vaultCount",
+            "type": "u32"
+          },
           {
             "name": "maxDataLength",
             "type": "u32"

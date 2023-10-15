@@ -8,17 +8,17 @@ import {
 } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useCallback, useEffect } from "react";
 import { set, useForm } from "react-hook-form";
-import { generateVaultKey, hashPassword } from "../utils/crypto";
-import { VaultItem } from "../types";
-import FormWrapper from "./FormWrapper";
+import { generateVaultKey, hashPassword } from "../../utils/crypto";
+import { VaultItem } from "../../types";
+import FormWrapper from "../FormWrapper";
 import { useSession } from "next-auth/react";
-import { fetcher } from "../utils/use-data-fetcher";
-import { RegisterUserData } from "../pages/api/user/register";
+import { fetcher } from "../../utils/use-data-fetcher";
+import { RegisterUserData } from "../../pages/api/user/register";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { Transaction } from "@solana/web3.js";
-import { TxSendData } from "../pages/api/tx/send";
-import { decryptVault } from "../utils/crypto";
-import styles from "../styles/Popup.module.css";
+import { TxSendData } from "../../pages/api/tx/send";
+import { decryptVault } from "../../utils/crypto";
+import styles from "../../styles/Popup.module.css";
 import React from "react";
 
 function UnlockForm({

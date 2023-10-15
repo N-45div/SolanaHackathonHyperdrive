@@ -1,8 +1,8 @@
 import { useFieldArray, useForm } from "react-hook-form";
-import { encryptVault } from "../utils/crypto";
-import { VaultItem } from "../types";
-import FormWrapper from "./FormWrapper";
-import styles from "../styles/Popup.module.css";
+import { encryptVault } from "../../utils/crypto";
+import { VaultItem } from "../../types";
+import FormWrapper from "../FormWrapper";
+import styles from "../../styles/Popup.module.css";
 import React from "react";
 
 function Vault({

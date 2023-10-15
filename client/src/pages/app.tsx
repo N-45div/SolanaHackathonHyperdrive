@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import LoginForm from "../components/LoginForm";
-import RegisterForm from "../components/RegisterForm";
-import Vault from "../components/Vault";
+import LoginForm from "../components/App/LoginForm";
+import RegisterForm from "../components/App/RegisterForm";
+import Vault from "../components/App/Vault";
 import styles from "../styles/Home.module.css";
 import { VaultItem } from "../types";
-import UnlockForm from "../components/UnlockForm";
+import UnlockForm from "../components/App/UnlockForm";
 import dynamic from "next/dynamic";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useSession, signOut } from "next-auth/react";

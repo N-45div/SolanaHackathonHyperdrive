@@ -1,11 +1,11 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { getCsrfToken, signIn, signOut, useSession } from "next-auth/react";
-import styles from "../styles/Home.module.css";
-import { SigninMessage } from "../utils/SignMessage";
+import styles from "../../styles/Home.module.css";
+import { SigninMessage } from "../../utils/SignMessage";
 import bs58 from "bs58";
 import { useCallback, useEffect } from "react";
-import { fetcher } from "../utils/use-data-fetcher";
-import { LoginUserData } from "../pages/api/user/[wallet]";
+import { fetcher } from "../../utils/use-data-fetcher";
+import { LoginUserData } from "../../pages/api/user/[wallet]";
 import { useWallet } from "@solana/wallet-adapter-react";
 import dynamic from "next/dynamic";
 import React from "react";
@@ -48,6 +48,7 @@ function LoginForm({
     else
       setStep("register");
 
+    // setStep("vault");
   },[setStep, wallet.publicKey])
 
   const handleSignIn = useCallback(async () => {

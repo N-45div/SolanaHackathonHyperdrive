@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:display=swap");
+nav {
+  background-color: transparent !important;
+  margin-top: 12px;
+  margin-bottom: 22px;
+}
+
+.nav-logo {
+  width: 100px;
+}
+.navbar-brand {
+  color: white !important;
+}
+.offcanvas.show:not(.hiding),
+.offcanvas.showing {
+  transform: none;
+  transition: 10ms;
+}
+.offcanvas.offcanvas-end {
+  transition: 10ms;
+}
+.nav-link {
+  content: "";
+  position: relative;
+  color: white !important;
+  margin: auto 12px;
+  font-family: "Rubik", sans-serif;
+}
+.offcanvas-end {
+  background-color: #0d0d2b !important;
+}
+.nav-link:hover {
+  color: #3671e9;
+}
+
+.nav-link:hover:before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 80%;
+  background-color: #0014ed9c;
+  display: inline-block;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+}
+
+.vertical-line {
+  border-left: 2px solid rgba(255, 255, 255, 0.399);
+  height: 60%;
+  margin: auto 12px;
+}
+
+.nav-btn {
+  margin: auto 12px;
+}
+
+.Register-btn {
+  background-color: #3671e9 !important;
+  color: white !important;
+  border-radius: 3em !important;
+  padding-left: 1.5em !important;
+  padding-right: 1.5em !important;
+}
+
+.Register-btn:hover {
+  background-color: #3671e9 !important;
+  border: none;
+}
+
+.offcanvas.offcanvas-end {
+  top: 0;
+  right: 0;
+  width: 100%;
+  border-left: var(--bs-offcanvas-border-width) solid
+    var(--bs-offcanvas-border-color);
+  transform: translateX(100%);
+}
+
+.offcanvas {
+  position: fixed;
+  bottom: 0;
+  z-index: 1045;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  color: var(--bs-offcanvas-color);
+  visibility: hidden;
+  background-color: var(--bs-offcanvas-bg);
+  background-clip: padding-box;
+  outline: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-toggler {
+  color: transparent;
+  border-color: transparent;
+  border-color: transparent;
+}
+
+@media screen and (max-width: 1193px) {
+  .nav-link {
+    position: relative;
+    color: white !important;
+    margin: 0.7em 0.5em;
+    font-family: "Rubik", sans-serif;
+  }
+  .Register-btn {
+    margin-top: 1em;
+    color: white;
+    border-radius: 3em;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+  }
+}

@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Kanit&display=swap");
 a {
-  color: inherit;
   text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: white;
 }
 
 * {
@@ -13,15 +17,12 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Kanit", sans-serif;
-}
-
-body {
-  background-color: #000000;
-
+  
+  color: white;
+  background-color: #000000 !important;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: "Kanit", sans-serif;
+  font-family: Titillium Web, sans-serif !important;
 }
 
 input {
@@ -32,5 +33,75 @@ input {
     0
   ); /* This sets the background color to fully transparent */
   border: 1px solid #00a3e8; /* You can add border styles if needed */
-  color: #fff; /* Set text color to contrast with the background */
+  color: rgba(0, 0, 0, 0.344); /* Set text color to contrast with the background */
+}
+
+input:focus {
+  outline: none;
+  border-color: #0000002e;
+}
+
+input[type="submit"] {
+  background-color: #3671e9 !important;
+  color: white;
+  border-radius: 3em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  border: none;
+  width: 20%;
+}
+
+select {
+  background-color: #ffffff !important;
+  color: rgb(0, 0, 0);
+
+  border: none;
+  width: 20%;
+  border-width: 1px;
+  background-color: transparent;
+  background-color: transparent;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-left-style: none;
+}
+
+select:focus {
+  outline: none;
+  border-color: #f40a0a2e;
+}
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0;
+}
+
+li {
+  list-style: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background-color: #000000 !important;
+  }
+}
+
+ol,
+ul {
+  padding-left: 0 !important;
+}
+
+form {
+  width: 100%;
+  padding-top: 2em;
+  margin: auto;
+  color: black;
 }

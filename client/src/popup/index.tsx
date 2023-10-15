@@ -1,9 +1,9 @@
 // Import necessary modules and components
 import React, { useMemo } from "react";
 import { useEffect, useState } from "react";
-import LoginForm from "../components/LoginForm";
-import RegisterForm from "../components/RegisterForm";
-import Vault from "../components/Vault";
+import LoginForm from "../components/App/LoginForm";
+import RegisterForm from "../components/App/RegisterForm";
+import Vault from "../components/App/Vault";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { ChakraProvider } from "@chakra-ui/react";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -25,7 +25,7 @@ import {
 } from "@solana/wallet-adapter-react";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import styles from "../styles/Popup.module.css";
-import UnlockForm from "../components/UnlockForm";
+import UnlockForm from "../components/App/UnlockForm";
 require("@solana/wallet-adapter-react-ui/styles.css");
 
 const queryClient = new QueryClient();

@@ -1,4 +1,4 @@
-use crate::Vault;
+use crate::{Vault, User};
 use anchor_lang::prelude::*;
 
 
@@ -17,6 +17,9 @@ pub struct DeleteVault<'info> {
     #[account(mut, close = payer)]
     pub vault: Account<'info, Vault>,
 
+    #[account(mut)]
+    pub user: Account<'info, User>,
+
     pub system_program: Program<'info, System>,
 }
 
@@ -24,6 +27,9 @@ pub fn handler(
     ctx: Context<DeleteVault>
 ) -> Result<()> {
     let vault = &mut ctx.accounts.vault;
+    let user = &mut ctx.accounts.user;
+
+    user.vault_count = user.vault_count - 1;
 
     emit!(VaultEventDelete {
         id: vault.key(),
