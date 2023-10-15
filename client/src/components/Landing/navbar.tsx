@@ -24,7 +24,7 @@ function NavbarMenu() {
           <div
             className="offcanvas offcanvas-end "
             data-bs-hideresize="true"
-            tabIndex="-1"
+            tabIndex= {-1}
             id="offcanvasNavbarExample-expand-lg"
             aria-labelledby="offcanvasNavbarExample-expand-lg"
           >
@@ -52,7 +52,7 @@ function NavbarMenu() {
                   </a>
                 </li>{" "}
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="/app">
                     Login
                   </a>
                 </li>{" "}

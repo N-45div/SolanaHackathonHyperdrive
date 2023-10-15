@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import cryptoData from "../../Props/crypto"; //imported props
 
-function Plan(props) {
+function Plan() {
   const [active, setActive] = useState(1);
 
   return (
@@ -15,7 +15,7 @@ function Plan(props) {
         data-aos-easing="ease-in-sine"
       >
         {cryptoData.map((item, index) => {
-          const { coinName, coin, id, coinText, coinDetails, image } = item;
+          const { coinName, id, coinText, coinDetails, image } = item;
           return (
             <aside
               key={index}
