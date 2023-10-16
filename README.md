@@ -19,7 +19,6 @@ Welcome to Viel, a next-generation Web3 password manager built on the Solana blo
 Viel offers several key features:
 
 - **Secure Data Storage**: Viel stores your sensitive data on the Solana blockchain, ensuring its safety and immutability.
-- **User-Friendly Interface**: A user-friendly web interface allows for easy navigation and data management.
 - **Password Generation**: Viel can generate strong, unique passwords for your accounts.
 - **Web3 Integration**: Leverage the power of the Solana blockchain for enhanced security.
 - **Cross-Platform**: Access your passwords from any device with an internet connection.
