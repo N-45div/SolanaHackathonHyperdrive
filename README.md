@@ -1,5 +1,3 @@
-Creating a well-structured and informative README is crucial for presenting your project during a hackathon. Below is a sample README for your web3 password manager project "Viel," which is built on the Solana blockchain. You can customize and expand upon this template to suit your project's specific needs:
-
 # Viel - A Web3 Password Manager on Solana
 
 ## Introduction
@@ -36,34 +34,15 @@ Before setting up and running Viel, ensure you have the following prerequisites:
 - Node.js and npm installed on your local machine.
 - A Solana wallet for interacting with the Solana blockchain.
 
-### Installation
-
-1. Clone the Viel repository to your local machine:
-
-   ```bash
-   git clone https://github.com/your-username/viel.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd viel
-   ```
-
-3. Install the project dependencies:
-
-   ```bash
-   npm install
-   ```
-
 ## Usage
 
 1. **Start the Application**:
 
    To run Viel, execute the following command in the project directory:
 
-   ```bash
-   npm start
+   ```Terminal
+   npm run dev:next
+   npm run dev: plasmo
    ```
 
 2. **Access Viel**:
@@ -78,11 +57,7 @@ Before setting up and running Viel, ensure you have the following prerequisites:
 
    Add, edit, and delete passwords from your vault. Viel securely stores this data on the Solana blockchain.
 
-5. **Generate Passwords**:
-
-   Use Viel's password generator to create strong, unique passwords for your accounts.
-
-6. **Web3 Integration**:
+5. **Web3 Integration**:
 
    Leverage Solana's blockchain capabilities for enhanced security and data immutability.
 
